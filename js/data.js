@@ -38,7 +38,7 @@ window.ABDATA = {
     // Active streak mid-challenge (the "happy path")
     active: {
       id: 'active',
-      name: 'AyRis',
+      name: 'AyRiS',
       college: 'Banaras Hindu University',
       track: 'web',
       startDay: 1,
@@ -48,17 +48,17 @@ window.ABDATA = {
       freezesTotal: 2,
       freezesUsed: 0,
       submissions: [
-        { day: 1,  github: 'https://github.com/AyRis/intro', linkedin: 'https://linkedin.com/posts/AyRis-day1' },
-        { day: 2,  github: 'https://github.com/AyRis/intro', linkedin: 'https://linkedin.com/posts/AyRis-day2' },
-        { day: 3,  github: 'https://github.com/AyRis/navpage', linkedin: 'https://linkedin.com/posts/AyRis-day3' },
-        { day: 4,  github: 'https://github.com/AyRis/responsive', linkedin: 'https://linkedin.com/posts/AyRis-day4' },
-        { day: 5,  github: 'https://github.com/AyRis/counter', linkedin: 'https://linkedin.com/posts/AyRis-day5' },
-        { day: 6,  github: 'https://github.com/AyRis/fetchpage', linkedin: 'https://linkedin.com/posts/AyRis-day6' },
-        { day: 7,  github: 'https://github.com/AyRis/intro', linkedin: 'https://linkedin.com/posts/AyRis-day7' },
-        { day: 8,  github: 'https://github.com/AyRis/tictactoe', linkedin: 'https://linkedin.com/posts/AyRis-day8' },
-        { day: 9,  github: 'https://github.com/AyRis/tictactoe', linkedin: 'https://linkedin.com/posts/AyRis-day9' },
-        { day: 10, github: 'https://github.com/AyRis/tictactoe', linkedin: 'https://linkedin.com/posts/AyRis-day10' },
-        { day: 11, github: 'https://github.com/AyRis/timer', linkedin: 'https://linkedin.com/posts/AyRis-day11' }
+        { day: 1,  github: 'https://github.com/AyRiS/intro', linkedin: 'https://linkedin.com/posts/AyRiS-day1' },
+        { day: 2,  github: 'https://github.com/AyRiS/intro', linkedin: 'https://linkedin.com/posts/AyRiS-day2' },
+        { day: 3,  github: 'https://github.com/AyRiS/navpage', linkedin: 'https://linkedin.com/posts/AyRiS-day3' },
+        { day: 4,  github: 'https://github.com/AyRiS/responsive', linkedin: 'https://linkedin.com/posts/AyRiS-day4' },
+        { day: 5,  github: 'https://github.com/AyRiS/counter', linkedin: 'https://linkedin.com/posts/AyRiS-day5' },
+        { day: 6,  github: 'https://github.com/AyRiS/fetchpage', linkedin: 'https://linkedin.com/posts/AyRiS-day6' },
+        { day: 7,  github: 'https://github.com/AyRiS/intro', linkedin: 'https://linkedin.com/posts/AyRiS-day7' },
+        { day: 8,  github: 'https://github.com/AyRiS/tictactoe', linkedin: 'https://linkedin.com/posts/AyRiS-day8' },
+        { day: 9,  github: 'https://github.com/AyRiS/tictactoe', linkedin: 'https://linkedin.com/posts/AyRiS-day9' },
+        { day: 10, github: 'https://github.com/AyRiS/tictactoe', linkedin: 'https://linkedin.com/posts/AyRiS-day10' },
+        { day: 11, github: 'https://github.com/AyRiS/timer', linkedin: 'https://linkedin.com/posts/AyRiS-day11' }
       ],
       badges: ['first_commit', 'week_streak', 'gh_link', 'linkedin_pro']
     },
@@ -66,7 +66,7 @@ window.ABDATA = {
     // Fresh student — no streak yet, warm start
     fresh: {
       id: 'fresh',
-      name: 'AyRis',
+      name: 'AyRiS',
       college: 'Banaras Hindu University',
       track: 'web',
       startDay: 1,
@@ -82,7 +82,7 @@ window.ABDATA = {
     // Missed a day — streak preserved via a used Streak Freeze
     freezed: {
       id: 'freezed',
-      name: 'AyRis',
+      name: 'AyRiS',
       college: 'Banaras Hindu University',
       track: 'web',
       startDay: 1,
@@ -102,7 +102,7 @@ window.ABDATA = {
     // Empty profile — has joined but zero submissions
     empty: {
       id: 'empty',
-      name: 'AyRis',
+      name: 'AyRiS',
       college: 'Banaras Hindu University',
       track: 'web',
       startDay: 1,
@@ -126,7 +126,7 @@ window.ABDATA = {
 
   // A short real-sounding success snippet for the landing page
   successSnippet: {
-    name: 'AyRis',
+    name: 'AyRiS',
     college: 'Banaras Hindu University',
     line: 'Day 60/60 \u2014 got a frontend internship off my ABTalks portfolio. The public streak did it.',
     streak: 60
