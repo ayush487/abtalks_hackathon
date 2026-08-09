@@ -6,8 +6,21 @@
 (function () {
   'use strict';
 
-  var D = window.ABDATA;
+var D = window.ABDATA;
   var app = document.getElementById('app');
+
+  // ---- base path (GitHub Pages / subpath aware) ----
+  // Derives the app's base directory from the current URL so that
+  // routes keep the deployment subpath, e.g. /abtalks_hackathon/dashboard
+  var BASE = (function () {
+    var t = location.pathname.replace(/\/+$/, '');
+    return t.replace(/\/dashboard$/, '').replace(/\/day\/\d+$/, '');
+  })();
+
+  // prefix a route with the base path
+  function p(path) {
+    return BASE + path;
+  }
 
   // ---- current demo student (switched via the demo switcher) ----
   var currentStudentId = 'active';
@@ -58,14 +71,14 @@
     if (student.streak > 0) {
       chips += '<span class="streak-chip">' + icon('flame') + student.streak + '</span>';
     }
-var brandHref = '/';
+var brandHref = p('/');
     return (
       '<header class="app-header">' +
         '<a class="brand" href="' + brandHref + '">' +
           '<span class="mark">AB</span>Talks<small>&middot; 60 days</small>' +
         '</a>' +
         '<div class="header-actions">' + chips +
-          '<button class="profile-btn" data-go="/dashboard" aria-label="Profile">' +
+'<button class="profile-btn" data-go="' + p('/dashboard') + '" aria-label="Profile">' +
             '<span class="avatar">' + esc(initials(student.name)) + '</span>' +
           '</button>' +
         '</div>' +
@@ -80,7 +93,7 @@ var brandHref = '/';
     ];
     var html = items.map(function (it) {
       var act = (active === it.id) ? ' active' : '';
-var href = it.id === '' ? '/' : '/' + it.id;
+var href = it.id === '' ? p('/') : p('/' + it.id);
       return '<a class="nav-item' + act + '" href="' + href + '">' + icon(it.icon) + '<span>' + it.label + '</span></a>';
     }).join('');
     return '<nav class="bottom-nav">' + html + '</nav>';
@@ -121,8 +134,8 @@ var href = it.id === '' ? '/' : '/' + it.id;
         '<h1>Build daily.<br/><span class="grad">Prove it publicly.</span></h1>' +
         '<p class="lead">ABTalks is a 60-day coding challenge for college students. Pick a track, build something small every day, and keep a public streak your future recruiter can see.</p>' +
         '<div class="hero-cta">' +
-'<a class="btn btn-primary" href="/dashboard">Start your 60 days \u2192</a>' +
-          '<a class="btn btn-ghost" href="/day/12">See a sample day</a>' +
+'<a class="btn btn-primary" href="' + p('/dashboard') + '">Start your 60 days \u2192</a>' +
+          '<a class="btn btn-ghost" href="' + p('/day/12') + '">See a sample day</a>' +
         '</div>' +
         '<p class="hero-note">Free to join &middot; 2 free Streak Freezes included</p>' +
       '</section>' +
@@ -169,7 +182,7 @@ var href = it.id === '' ? '/' : '/' + it.id;
         '</div>' +
       '</section>' +
 
-'<a class="btn btn-primary" href="/dashboard" style="margin-bottom:' + '24px">Start your 60 days \u2192</a>';
+'<a class="btn btn-primary" href="' + p('/dashboard') + '" style="margin-bottom:' + '24px">Start your 60 days \u2192</a>';
 
     app.innerHTML = shell('', '<div class="landing-grid">' + inner + '</div>');
     hookUp();
@@ -232,14 +245,14 @@ var href = it.id === '' ? '/' : '/' + it.id;
     // --- today card (or warm start) ---
     var todayCard;
     if (s.currentDay > 60) {
-todayCard = '<div class="card today-card"><div class="top"><span class="day-tag">Challenge complete</span></div><div class="big" style="font-size:40px">\u{1F3C6}</div><h3>You finished your 60 days!</h3><div class="btn btn-teal" data-go="/dashboard">View portfolio</div></div>';
+todayCard = '<div class="card today-card"><div class="top"><span class="day-tag">Challenge complete</span></div><div class="big" style="font-size:40px">\u{1F3C6}</div><h3>You finished your 60 days!</h3><div class="btn btn-teal" data-go="' + p('/dashboard') + '">View portfolio</div></div>';
     } else if (isSubmitted(s, s.currentDay)) {
       todayCard =
         '<div class="card today-card">' +
           '<div class="top"><span class="day-tag">Day ' + s.currentDay + ' of 60</span><span class="chip teal">Submited \u2713</span></div>' +
           '<h3>' + esc(today.title) + '</h3>' +
           '<p class="desc">' + esc(today.desc) + '</p>' +
-'<a class="btn btn-ghost" href="/day/' + s.currentDay + '">Review today</a>' +
+'<a class="btn btn-ghost" href="' + p('/day/' + s.currentDay) + '">Review today</a>' +
         '</div>';
     } else {
       todayCard =
@@ -247,7 +260,7 @@ todayCard = '<div class="card today-card"><div class="top"><span class="day-tag"
           '<div class="top"><span class="day-tag">Today \u2014 Day ' + s.currentDay + '</span></div>' +
           '<h3>' + esc(today.title) + '</h3>' +
           '<p class="desc">' + esc(today.desc) + '</p>' +
-'<a class="btn btn-primary" href="/day/' + s.currentDay + '">Start today ' + icon('arrow') + '</a>' +
+'<a class="btn btn-primary" href="' + p('/day/' + s.currentDay) + '">Start today ' + icon('arrow') + '</a>' +
         '</div>';
     }
 
@@ -301,12 +314,12 @@ todayCard = '<div class="card today-card"><div class="top"><span class="day-tag"
             '<div class="big">\u{1F4AD}</div>' +
             '<h3>No builds yet &mdash; that\u2019s okay</h3>' +
             '<p>Your dashboard is ready. Submit your first day\u2019s GitHub + LinkedIn proof and it\u2019ll light up here.</p>' +
-'<a class="btn btn-primary" href="/day/' + s.currentDay + '">Do Day ' + s.currentDay + '\u2192</a>' +
+'<a class="btn btn-primary" href="' + p('/day/' + s.currentDay) + '">Do Day ' + s.currentDay + '\u2192</a>' +
           '</div>' +
         '</div>';
     }
 
-inner += '<a class="btn btn-ghost" href="/day/' + s.currentDay + '" style="margin-top:' + '8px">Open today\u2019s challenge</a>';
+inner += '<a class="btn btn-ghost" href="' + p('/day/' + s.currentDay) + '" style="margin-top:' + '8px">Open today\u2019s challenge</a>';
 
     app.innerHTML = shell('dashboard', inner);
     hookUp();
@@ -349,7 +362,7 @@ inner += '<a class="btn btn-ghost" href="/day/' + s.currentDay + '" style="margi
           '<div class="success-check">' + icon('check') + '</div>' +
           '<h2>Day ' + n + ' is in the books</h2>' +
           '<p>Your GitHub and LinkedIn proof is saved. Come back tomorrow to keep the streak going.</p>' +
-'<a class="btn btn-primary" href="/dashboard">Back to dashboard</a>' +
+'<a class="btn btn-primary" href="' + p('/dashboard') + '">Back to dashboard</a>' +
         '</div>';
     } else {
       formHtml =
@@ -405,8 +418,13 @@ function go(path) {
     route();
   }
 
-  function route() {
+function route() {
     var path = location.pathname || '/';
+    // strip the deployment base path (e.g. /abtalks_hackathon) so the
+    // matcher below works identically whether hosted at root or a subpath.
+    if (BASE && path.indexOf(BASE) === 0) {
+      path = path.slice(BASE.length) || '/';
+    }
 
     if (path === '/' || path === '') {
       renderLanding();
