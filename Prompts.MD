@@ -69,3 +69,4 @@ Introduce a **"Streak Freeze"** mechanic: each student gets a limited number of 
 the responsiveness of the page doesnt work well 
 fix the large svg and make the page much responsiveness to mobile devices (390px width)
 
+the route mapper should be "/dashboard" instead of "/#/dashboard"

@@ -1,16 +1,15 @@
-# ABTalks Redesign — Build Steps
+# TODO — Convert hash router to path-based (History API) router
 
-## Phase 1 — Data
-- [x] Create `js/data.js` with realistic mocked data (tracks, days, students covering active / fresh / freezed / empty states)
-
-## Phase 2 — Stylesystem
-- [x] Create `css/styles.css` — mobile-first design system for 390px (dark calm palette, big tap targets, shared components), then desktop media queries
-
-## Phase 3 — App shell
-- [x] Create `index.html` — head (fonts/styles), `#app` mount, inline SVG icon sprite, script tags
-
-## Phase 4 — App logic
-- [x] Create `js/app.js` — hash router, header + bottom nav, landing renderer, dashboard renderer, day renderer, streak-freeze logic, submission flow, demo profile switcher
-
-## Phase 5 — Verify
-- [x] Confirm all three routes render and all edge-case states are reachable via demo switcher
+- [x] Update file header comment (Hash router → Path router)
+- [x] Update `brandHref` in `header()` to `/`
+- [x] Update profile button `data-go` to `/dashboard`
+- [x] Update bottom nav hrefs to `/` and `/dashboard`
+- [x] Update landing page CTA hrefs
+- [x] Update dashboard page hrefs/data-go
+- [x] Update day page hrefs
+- [x] Rewrite `route()` to read `location.pathname`
+- [x] Add `go()` helper using `history.pushState`
+- [x] Update `hookUp()` data-go handler + add link interception
+- [x] Update submission form day detection to `location.pathname`
+- [x] Switch event listener from `hashchange` to `popstate`
+- [x] Test routes: `/`, `/dashboard`, `/day/:n`
