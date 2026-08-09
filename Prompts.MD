@@ -70,3 +70,10 @@ the responsiveness of the page doesnt work well
 fix the large svg and make the page much responsiveness to mobile devices (390px width)
 
 the route mapper should be "/dashboard" instead of "/#/dashboard"
+
+## Checkbox Selection fix
+What to build today
+fix checkbox that it should select one checkbox at a time.
+
+## Added Toggle button for light and dark mode
+Add a switch button in the bottom right corner to change the theme from the dark and light mode currently there is only dark mode is in the website.

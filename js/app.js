@@ -113,8 +113,14 @@ var href = it.id === '' ? p('/') : p('/' + it.id);
     );
   }
 
-  function shell(activeNav, inner) {
-    return header() + '<main class="page">' + inner + '</main>' + bottomNav(activeNav);
+function shell(activeNav, inner) {
+    return header() + '<main class="page">' + inner + '</main>' + bottomNav(activeNav) + themeToggle();
+  }
+
+  // floating dark/light theme switcher (bottom-right)
+  function themeToggle() {
+    var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    return '<button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle theme">' + (isLight ? '\u{1F319}' : '\u2600\uFE0F') + '</button>';
   }
 
   // ============================================================
@@ -454,7 +460,19 @@ function route() {
   // ============================================================
   // EVENT BINDING (delegation)
   // ============================================================
-  function hookUp() {
+function hookUp() {
+    // theme toggle (dark/light)
+    var themeBtn = document.getElementById('theme-toggle');
+    if (themeBtn) {
+      themeBtn.addEventListener('click', function () {
+        var root = document.documentElement;
+        var next = root.getAttribute('data-theme') === 'light' ? '' : 'light';
+        if (next) { root.setAttribute('data-theme', 'light'); } else { root.removeAttribute('data-theme'); }
+        try { localStorage.setItem('abtalks-theme', next || 'dark'); } catch (e) {}
+        route();
+      });
+    }
+
     // demo student switcher
     document.querySelectorAll('[data-student]').forEach(function (btn) {
       btn.addEventListener('click', function () {
@@ -503,6 +521,15 @@ var m = location.pathname.match(/\/day\/(\d+)/);
   }
 
 // ---- boot ----
+  // restore saved theme before first render
+  (function () {
+    try {
+      if (localStorage.getItem('abtalks-theme') === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    } catch (e) {}
+  })();
+
   window.addEventListener('popstate', route);
   route();
 })();

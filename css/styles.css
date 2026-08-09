@@ -48,13 +48,46 @@
   --r-lg: 22px;
   --r-pill: 999px;
 
-  /* Effects */
+/* Effects */
   --shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
   --glow-amber: 0 0 34px rgba(245, 185, 66, 0.18);
 
   /* Layout */
   --nav-h: 68px;
   --header-h: 60px;
+
+  /* Theme surfaces (override in light theme) */
+  --header-bg: rgba(14, 16, 19, 0.82);
+  --nav-bg: rgba(17, 21, 26, 0.9);
+}
+
+/* ---------- Light theme ---------- */
+[data-theme="light"] {
+  --bg: #f4f5f7;
+  --bg-soft: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #eef0f3;
+  --surface-3: #dfe2e8;
+  --border: #d4d8df;
+
+  --text: #1c2128;
+  --text-soft: #4b5563;
+  --text-mut: #6b7280;
+
+  --amber: #d97706;
+  --amber-soft: #fef3c7;
+  --teal: #0d9488;
+  --teal-soft: #ccfbf1;
+  --violet: #7c3aed;
+  --violet-soft: #ede9fe;
+  --rose: #e11d48;
+  --rose-soft: #ffe4e6;
+
+  --shadow: 0 6px 24px rgba(15, 23, 42, 0.12);
+  --glow-amber: 0 0 34px rgba(217, 119, 6, 0.22);
+
+  --header-bg: rgba(255, 255, 255, 0.85);
+  --nav-bg: rgba(255, 255, 255, 0.92);
 }
 
 /* ---------- Reset ---------- */
@@ -93,8 +126,8 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.2; font-weight: 6
   position: sticky; top: 0; z-index: 20;
   height: var(--header-h);
   display: flex; align-items: center; justify-content: space-between;
-  padding: 0 var(--sp-5);
-  background: rgba(14, 16, 19, 0.82);
+padding: 0 var(--sp-5);
+  background: var(--header-bg);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
@@ -123,8 +156,8 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.2; font-weight: 6
 .bottom-nav {
   position: fixed; bottom: 0; left: 0; right: 0; z-index: 30;
   height: var(--nav-h);
-  display: flex; align-items: center; justify-content: space-around;
-  background: rgba(17, 21, 26, 0.9);
+display: flex; align-items: center; justify-content: space-around;
+  background: var(--nav-bg);
   backdrop-filter: blur(12px);
   border-top: 1px solid var(--border);
   padding-bottom: env(safe-area-inset-bottom);
@@ -377,6 +410,21 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.2; font-weight: 6
 .demo-switch .opts { display: flex; gap: var(--sp-2); flex-wrap: wrap; justify-content: center; }
 .demo-switch .opt { padding: 8px 14px; border-radius: var(--r-pill); background: var(--surface-2); border: 1px solid var(--border); font-size: 12px; font-weight: 600; color: var(--text-soft); }
 .demo-switch .opt.active { background: var(--violet-soft); color: var(--violet); border-color: rgba(167,139,250,0.4); }
+
+/* ---------- Theme toggle (floating, bottom-right) ---------- */
+.theme-toggle {
+  position: fixed; right: var(--sp-5); bottom: calc(var(--nav-h) + var(--sp-4));
+  z-index: 40;
+  width: 46px; height: 46px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--surface-2); color: var(--text);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  font-size: 20px;
+  transition: transform 0.12s ease, opacity 0.15s ease, background 0.2s ease;
+}
+.theme-toggle:active { transform: scale(0.92); }
+.theme-toggle:hover { opacity: 0.9; }
 
 /* ---------- Desktop enhancements ---------- */
 @media (min-width: 720px) {
