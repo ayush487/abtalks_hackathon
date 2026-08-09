@@ -38,8 +38,8 @@ window.ABDATA = {
     // Active streak mid-challenge (the "happy path")
     active: {
       id: 'active',
-      name: 'Ananya Sharma',
-      college: 'NIT Trichy',
+      name: 'AyRis',
+      college: 'Banaras Hindu University',
       track: 'web',
       startDay: 1,
       currentDay: 12,
@@ -48,17 +48,17 @@ window.ABDATA = {
       freezesTotal: 2,
       freezesUsed: 0,
       submissions: [
-        { day: 1,  github: 'https://github.com/ananya/intro', linkedin: 'https://linkedin.com/posts/ananya-day1' },
-        { day: 2,  github: 'https://github.com/ananya/intro', linkedin: 'https://linkedin.com/posts/ananya-day2' },
-        { day: 3,  github: 'https://github.com/ananya/navpage', linkedin: 'https://linkedin.com/posts/ananya-day3' },
-        { day: 4,  github: 'https://github.com/ananya/responsive', linkedin: 'https://linkedin.com/posts/ananya-day4' },
-        { day: 5,  github: 'https://github.com/ananya/counter', linkedin: 'https://linkedin.com/posts/ananya-day5' },
-        { day: 6,  github: 'https://github.com/ananya/fetchpage', linkedin: 'https://linkedin.com/posts/ananya-day6' },
-        { day: 7,  github: 'https://github.com/ananya/intro', linkedin: 'https://linkedin.com/posts/ananya-day7' },
-        { day: 8,  github: 'https://github.com/ananya/tictactoe', linkedin: 'https://linkedin.com/posts/ananya-day8' },
-        { day: 9,  github: 'https://github.com/ananya/tictactoe', linkedin: 'https://linkedin.com/posts/ananya-day9' },
-        { day: 10, github: 'https://github.com/ananya/tictactoe', linkedin: 'https://linkedin.com/posts/ananya-day10' },
-        { day: 11, github: 'https://github.com/ananya/timer', linkedin: 'https://linkedin.com/posts/ananya-day11' }
+        { day: 1,  github: 'https://github.com/AyRis/intro', linkedin: 'https://linkedin.com/posts/AyRis-day1' },
+        { day: 2,  github: 'https://github.com/AyRis/intro', linkedin: 'https://linkedin.com/posts/AyRis-day2' },
+        { day: 3,  github: 'https://github.com/AyRis/navpage', linkedin: 'https://linkedin.com/posts/AyRis-day3' },
+        { day: 4,  github: 'https://github.com/AyRis/responsive', linkedin: 'https://linkedin.com/posts/AyRis-day4' },
+        { day: 5,  github: 'https://github.com/AyRis/counter', linkedin: 'https://linkedin.com/posts/AyRis-day5' },
+        { day: 6,  github: 'https://github.com/AyRis/fetchpage', linkedin: 'https://linkedin.com/posts/AyRis-day6' },
+        { day: 7,  github: 'https://github.com/AyRis/intro', linkedin: 'https://linkedin.com/posts/AyRis-day7' },
+        { day: 8,  github: 'https://github.com/AyRis/tictactoe', linkedin: 'https://linkedin.com/posts/AyRis-day8' },
+        { day: 9,  github: 'https://github.com/AyRis/tictactoe', linkedin: 'https://linkedin.com/posts/AyRis-day9' },
+        { day: 10, github: 'https://github.com/AyRis/tictactoe', linkedin: 'https://linkedin.com/posts/AyRis-day10' },
+        { day: 11, github: 'https://github.com/AyRis/timer', linkedin: 'https://linkedin.com/posts/AyRis-day11' }
       ],
       badges: ['first_commit', 'week_streak', 'gh_link', 'linkedin_pro']
     },
@@ -66,8 +66,8 @@ window.ABDATA = {
     // Fresh student — no streak yet, warm start
     fresh: {
       id: 'fresh',
-      name: 'Rohan Verma',
-      college: 'VIT Vellore',
+      name: 'AyRis',
+      college: 'Banaras Hindu University',
       track: 'web',
       startDay: 1,
       currentDay: 1,
@@ -82,8 +82,8 @@ window.ABDATA = {
     // Missed a day — streak preserved via a used Streak Freeze
     freezed: {
       id: 'freezed',
-      name: 'Meera Iyer',
-      college: 'BITS Pilani',
+      name: 'AyRis',
+      college: 'Banaras Hindu University',
       track: 'web',
       startDay: 1,
       currentDay: 44,
@@ -102,8 +102,8 @@ window.ABDATA = {
     // Empty profile — has joined but zero submissions
     empty: {
       id: 'empty',
-      name: 'Arjun Nair',
-      college: 'Manipal Institute',
+      name: 'AyRis',
+      college: 'Banaras Hindu University',
       track: 'web',
       startDay: 1,
       currentDay: 34,
@@ -126,8 +126,8 @@ window.ABDATA = {
 
   // A short real-sounding success snippet for the landing page
   successSnippet: {
-    name: 'Priyanka D.',
-    college: 'PES University',
+    name: 'AyRis',
+    college: 'Banaras Hindu University',
     line: 'Day 60/60 \u2014 got a frontend internship off my ABTalks portfolio. The public streak did it.',
     streak: 60
   }

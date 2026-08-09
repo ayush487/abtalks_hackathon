@@ -313,9 +313,25 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.2; font-weight: 6
 .scope-list { list-style: none; }
 .scope-list li { display: flex; gap: var(--sp-3); align-items: flex-start; padding: var(--sp-3) 0; border-bottom: 1px solid var(--border); font-size: 14px; color: var(--text-soft); }
 .scope-list li:last-child { border-bottom: none; }
-.scope-list .check { flex: 0 0 20px; height: 20px; border-radius: 6px; border: 2px solid var(--border); display: grid; place-items: center; margin-top: 1px; }
+.scope-list .check { flex: 0 0 20px; height: 20px; border-radius: 6px; border: 2px solid var(--border); display: grid; place-items: center; margin-top: 1px; background: var(--surface-2); transition: background 0.15s ease, border-color 0.15s ease; position: relative; }
 .scope-list li.done .check { background: var(--teal); border-color: var(--teal); color: #06201c; }
 .scope-list li.done span { color: var(--text-mut); text-decoration: line-through; text-decoration-color: var(--border); }
+
+/* Interactive single-select checkboxes (radio group) */
+.scope-opt { display: flex; gap: var(--sp-3); align-items: flex-start; cursor: pointer; flex: 1; }
+.scope-radio { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
+.scope-opt .scope-text { flex: 1; }
+.scope-opt .check::after {
+  content: '';
+  width: 10px; height: 10px; border-radius: 3px;
+  background: var(--teal);
+  transform: scale(0);
+  transition: transform 0.15s ease;
+}
+.scope-opt .scope-radio:checked + .check { border-color: var(--teal); background: var(--teal-soft); }
+.scope-opt .scope-radio:checked + .check::after { transform: scale(1); }
+.scope-opt .scope-radio:checked ~ .scope-text { color: var(--text); }
+.scope-opt:active .check { border-color: var(--teal); }
 
 .friday-tip { display: flex; gap: var(--sp-3); background: var(--amber-soft); border-radius: var(--r-md); padding: var(--sp-4); }
 .friday-tip .ic { font-size: 22px; }

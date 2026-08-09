@@ -350,9 +350,20 @@ inner += '<a class="btn btn-ghost" href="' + p('/day/' + s.currentDay) + '" styl
         '</div>';
     }
 
-    var scopeHtml = day.scope.map(function (item, i) {
-      var done = submitted ? ' done' : '';
-      return '<li class="scope-item' + done + '"><span class="check">' + (submitted ? '<svg style="width:13px;height:13px"><use href="#icon-check"></use></svg>' : '') + '</span><span>' + esc(item) + '</span></li>';
+var scopeHtml = day.scope.map(function (item, i) {
+      if (submitted) {
+        // Static "done" state (already proved) — no interaction needed
+        return '<li class="scope-item done"><span class="check"><svg style="width:13px;height:13px"><use href="#icon-check"></use></svg></span><span>' + esc(item) + '</span></li>';
+      }
+      // Interactive single-select checkboxes (radio group = one at a time)
+      var checked = (i === 0) ? ' checked' : '';
+      return '<li class="scope-item">' +
+        '<label class="scope-opt">' +
+          '<input class="scope-radio" type="radio" name="scope-done" value="' + i + '"' + checked + ' />' +
+          '<span class="check"></span>' +
+          '<span class="scope-text">' + esc(item) + '</span>' +
+        '</label>' +
+        '</li>';
     }).join('');
 
     var formHtml;
